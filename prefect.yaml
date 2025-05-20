@@ -1,0 +1,26 @@
+name: Prefect_labfinal
+prefect-version: 2.16.4
+
+build:
+
+push:
+
+pull:
+- prefect.deployments.steps.git_clone:
+    repository: https://github.com/IVANJR2025/Prefect_labfinal.git
+    branch: main
+    access_token:
+
+deployments:
+- name: hello-deploy
+  version:
+  tags: []
+  description:
+  entrypoint: flows/hello_world.py:hello_world
+  parameters: {}
+  work_pool:
+    name: default-agent-pool
+    work_queue_name:
+    job_variables: {}
+
+
